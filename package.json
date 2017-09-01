@@ -1,0 +1,23 @@
+{
+  "name": "xw_node_study_test",
+  "version": "0.0.1",
+  "description": "small node tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xw616525957/xw_node_study_test.git"
+  },
+  "keywords": [
+    "node",
+    "javascript"
+  ],
+  "author": "xw",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/xw616525957/xw_node_study_test/issues"
+  },
+  "homepage": "https://github.com/xw616525957/xw_node_study_test#readme"
+}
