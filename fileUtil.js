@@ -2,6 +2,7 @@
 
 (function() {
     var fs = require('fs');
+    var path = require('path');
     var logUtil = require("./logUtil").log; //日志封装
 
     //输出引用项
@@ -40,6 +41,7 @@
         return res;
     }
 
+    //获取文件后缀
     fileUtil.getFileSuffix = function(filename) {
         if (!filename) return '';
         var index = filename.lastIndexOf(".");
@@ -48,6 +50,26 @@
         } else {
             return "";
         }
+    }
+
+    //复制文件夹
+    fileUtil.copyFolder = function(sourcePath, desPath) {
+        var files = getAllFiles(sourcePath, []);
+
+        files.forEach(function(item, index) {
+            if (index <= 2) {
+                var sourceFile = path.join(__dirname, item.path);
+                var destPath = path.join(__dirname, item.path.replace(sourcePath, desPath)); //item.path.substring(0, item.path.lastIndexOf(item.filename)).replace(sourcePath, desPath);
+                var readStream = fs.createReadStream(sourceFile);
+                var writeStream = fs.createWriteStream(destPath);
+                readStream.pipe(writeStream);
+
+                logUtil.log(destPath, "完成复制");
+            }
+
+
+        });
+        logUtil.log("复制结束");
     }
 
     //删除目录及其下所有文件
